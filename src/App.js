@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "./render/LoginPage";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { useSelector } from "react-redux";
+import SearchPage from "./render/SearchPage";
+
+const ProtectedRoute = ({ user, children }) => {
+  if (user) {
+    return children;
+  }
+  return <Navigate to="/" />;
+};
 
 function App() {
+  const user = useSelector((state) => {
+    return state.user.email;
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute user={user}>
+              <SearchPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+      <Footer />
     </div>
   );
 }

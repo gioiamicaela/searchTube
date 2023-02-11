@@ -1,0 +1,40 @@
+#basic-nav-dropdown {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #212529 !important;
+}
+
+div.dropdown-menu.show {
+  background-color: #212529 !important;
+}
+
+#nav-dropdown-search {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: red !important;
+  background-color: transparent !important;
+}
+
+#basic-nav-dropdown:hover {
+  color: red !important;
+  background-color: transparent !important;
+}
+
+.navbar-toggler-icon {
+  color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.1);
+  filter: invert(100%);
+}
+
+.navTitle {
+  font-family: "Barlow, sans-serif";
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  color: rgba(255, 255, 255, 0.55) !important;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
