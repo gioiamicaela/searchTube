@@ -1,5 +1,5 @@
 import React from "react";
-// import { get } from "../utils/httpClient";
+import { getChannelId } from "../utils/httpClient";
 import VideoCard from "./VideoCard";
 import styles from "./VideosGrid.module.css";
 import { Spinner } from "./Spinner";
@@ -13,14 +13,11 @@ export default function VideosGrid({ searchText }) {
 
   React.useEffect(() => {
     setIsLoading(true);
-    // const searchUrl = searchText
-    //   ? "/search/movie?query=" + searchText + "&page=" + page
-    //   : "/discover/movie?page=" + page;
-    // get(searchUrl).then((data) => {
-    //   setMovies((prevMovies) => prevMovies.concat(data.results));
-    //   setHasMore(data.page < data.total_pages);
-    //   setIsLoading(false);
-    // });
+    getChannelId("channels", searchText).then((data) => {
+      setVideos((prevVideos) => prevVideos.concat(data.results));
+      // setHasMore(data.page < data.total_pages);
+      setIsLoading(false);
+    });
   }, [searchText]);
 
   if (!isLoading && videos.length === 0) {

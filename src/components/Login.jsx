@@ -17,10 +17,13 @@ export default function Login() {
   //   const token = useSelector((state) => {
   //     return state.token;
   //   });
+  const emailCEO = process.env.REACT_APP_EMAIL;
+  const passwordCEO = process.env.REACT_APP_PASSWORD;
 
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
-    if (email === "ceo@searchtube.com" && password === "12345") {
+
+    if (email === emailCEO && password === passwordCEO) {
       dispatch(
         loginUser({
           email,

@@ -40,7 +40,15 @@ export function Search() {
             placeholder="Title"
             aria-label="Search Movies"
           />
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i
+            className="fa-solid fa-magnifying-glass"
+            style={{
+              position: "absolute",
+              right: "8px",
+              top: "8px",
+              height: "100%",
+            }}
+          ></i>
           {/* <FaSearch
             className={styles.searchButton}
             size={20}
