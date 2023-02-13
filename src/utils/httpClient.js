@@ -3,6 +3,9 @@ import axios from "axios";
 const API = process.env.REACT_APP_URL;
 const KEY = process.env.REACT_APP_KEY;
 export function getChannelId(path, user) {
+  console.log(API + path);
+  console.log("key", KEY);
+  console.log("user", user);
   return fetch(API + path, {
     headers: {
       "Content-Type": "application/json;charset=utf-8",

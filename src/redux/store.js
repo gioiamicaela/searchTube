@@ -12,10 +12,11 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
-// import showLogModalSlice from "./showLogModalSlice";
+import textSlice from "./textSlice";
 
 const rootReducer = combineReducers({
   user: userSlice,
+  text: textSlice,
 });
 
 const persistConfig = {

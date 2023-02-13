@@ -1,31 +1,30 @@
 import React from "react";
 import styles from "./Search.module.css";
-// import { setSearchText, clearSearchText } from "../redux/textSlice";
-// import { useSelector, useDispatch } from "react-redux";
+import { setSearchText, clearSearchText } from "../redux/textSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export function Search() {
-  // const dispatch = useDispatch();
-  const [searchText, setSearchText] = React.useState("");
-  // const searchText = useSelector((state) => {
-  //   return state.text.text;
-  // });
-  React.useEffect(() => {
-    if (searchText) {
-      setSearchText(searchText);
-    } else {
-      setSearchText("");
-    }
-  }, [searchText]);
+  const dispatch = useDispatch();
+  const searchText = useSelector((state) => {
+    return state.text.text;
+  });
+  // React.useEffect(() => {
+  //   if (searchText) {
+  //     setSearchText(searchText);
+  //   } else {
+  //     setSearchText("");
+  //   }
+  // }, [searchText]);
   const handleSetText = (e) => {
     e.preventDefault();
-    setSearchText("");
+    dispatch(clearSearchText(""));
   };
   const handleTextChanged = (e) => {
     e.preventDefault();
-    setSearchText(e.target.value.toUpperCase());
+    dispatch(setSearchText(e.target.value.toUpperCase()));
   };
   React.useEffect(() => {
-    setSearchText("");
+    dispatch(clearSearchText(""));
   }, []);
 
   return (
@@ -49,11 +48,6 @@ export function Search() {
               height: "100%",
             }}
           ></i>
-          {/* <FaSearch
-            className={styles.searchButton}
-            size={20}
-            style={{ backgroundColor: "none" }}
-          /> */}
         </div>
       </form>
       <div className="row">
