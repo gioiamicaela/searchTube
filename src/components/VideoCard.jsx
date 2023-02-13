@@ -6,7 +6,6 @@ import ReactPlayer from "react-player";
 function VideoMovie({ video }) {
   return (
     <Link to={"/" + video.id}>
-      {console.log(video.id.videoId)}
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
         alt={video.snippet.title}
