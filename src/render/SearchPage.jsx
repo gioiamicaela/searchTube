@@ -17,14 +17,14 @@ function SearchPage() {
   const [key, setKey] = React.useState("videos");
 
   return (
-    <div>
+    <div className="container minHeightContainer">
       <Search />
-      <div className="container">
+      <div>
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="mb-3"
+          className="my-5"
         >
           <Tab eventKey="videos" title="Videos">
             <VideosGrid key={debouncedSearch} searchText={debouncedSearch} />

@@ -53,7 +53,7 @@ export function Search() {
         </div>
       </form>
       <div className="row">
-        <h2 className={styles.movieTitle}>VIDEOS</h2>
+        <h2 className={styles.movieTitle}>CHANNELS</h2>
         <hr className="mb-4 text-white-50"></hr>
       </div>
     </div>

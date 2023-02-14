@@ -59,20 +59,6 @@ function NavBar() {
             >
               Home
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to={"/about"}
-              style={{ color: "rgba(255,255,255,.5)" }}
-            >
-              About
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to={"/contact"}
-              style={{ color: "rgba(255,255,255,.5)" }}
-            >
-              Contact
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
@@ -87,18 +73,12 @@ function NavBar() {
             >
               <NavDropdown.Item
                 as={Link}
-                to={"/search-rating"}
+                to={"/search"}
                 id="nav-dropdown-search"
               >
                 Search
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to={"/search-title"}
-                id="nav-dropdown-search"
-              >
-                Data
-              </NavDropdown.Item>
+
               {user && (
                 <NavDropdown.Item
                   as={Link}

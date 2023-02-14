@@ -30,3 +30,29 @@ footer {
   bottom: 0;
   right: 0;
 }
+
+.minHeightContainer {
+  min-height: 75vh;
+}
+
+#controlled-tab-example-tab-videos.active {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+#controlled-tab-example-tab-videos {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+#controlled-tab-example-tab-data.active {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+#controlled-tab-example-tab-data {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nav-tabs {
+  border-color: rgba(255, 255, 255, 0.55);
+}

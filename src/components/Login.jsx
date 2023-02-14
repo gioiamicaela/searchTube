@@ -1,8 +1,6 @@
 import React from "react";
 import { loginUser } from "../redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
-// import { ToastContainer, toast } from "react-toastify";
-// import "../assets/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
@@ -13,10 +11,7 @@ export default function Login() {
   const [successMessage, setSuccessMessage] = React.useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //   const [searchParams, setSearchParams] = useSearchParams();
-  //   const token = useSelector((state) => {
-  //     return state.token;
-  //   });
+
   const emailCEO = process.env.REACT_APP_EMAIL;
   const passwordCEO = process.env.REACT_APP_PASSWORD;
 
@@ -42,21 +37,6 @@ export default function Login() {
     }
   };
 
-  const notify = () => {
-    // toast.info(
-    //   "This was added only for design purposes, no functionalities included.",
-    //   {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   }
-    // );
-  };
-
   return (
     <div className="account-login section">
       <div className="container text-start">
@@ -73,54 +53,15 @@ export default function Login() {
                   <h3 style={{ fontFamily: `Corporate S Regular, sans-serif` }}>
                     Login Now
                   </h3>
-                  <p style={{ fontFamily: `Corporate S Regular, sans-serif` }}>
-                    You can login using your social media account or email
-                    address.
-                  </p>
                 </div>
-                <div className="social-login">
-                  <div className="loginSocialContainer">
-                    <a
-                      className="btn facebook-btn loginFacebook"
-                      style={{
-                        fontFamily: `Corporate S Regular, sans-serif`,
-                      }}
-                      onClick={notify}
-                    >
-                      <i className="fa-brands fa-facebook-f"></i> Facebook Login
-                    </a>
-                    <a
-                      className="btn twitter-btn loginTwitter"
-                      style={{
-                        fontFamily: `Corporate S Regular, sans-serif`,
-                      }}
-                      onClick={notify}
-                    >
-                      <i className="fa-brands fa-twitter"></i> Twitter Login
-                    </a>
 
-                    <a
-                      className="btn google-btn loginGoogle"
-                      style={{
-                        fontFamily: `Corporate S Regular, sans-serif`,
-                      }}
-                      onClick={notify}
-                    >
-                      <i className="fa-brands fa-google"></i> Google Login
-                    </a>
-                  </div>
-                </div>
-                <div className="alt-option">
-                  <span
-                    style={{ fontFamily: `Corporate S Regular, sans-serif` }}
-                  >
-                    Or
-                  </span>
-                </div>
                 <div className="form-group input-group">
                   <label
                     htmlFor="reg-fn"
-                    style={{ fontFamily: `Corporate S Regular, sans-serif` }}
+                    style={{
+                      fontFamily: `Corporate S Regular, sans-serif`,
+                      color: "#e6e6e6",
+                    }}
                   >
                     Email
                   </label>
@@ -138,7 +79,10 @@ export default function Login() {
                 <div className="form-group input-group">
                   <label
                     htmlFor="reg-fn"
-                    style={{ fontFamily: `Corporate S Regular, sans-serif` }}
+                    style={{
+                      fontFamily: `Corporate S Regular, sans-serif`,
+                      color: "#e6e6e6",
+                    }}
                   >
                     Password
                   </label>
@@ -153,31 +97,7 @@ export default function Login() {
                     }}
                   />
                 </div>
-                <div className="d-flex flex-wrap justify-content-between bottom-content">
-                  <div className="form-check">
-                    <input
-                      type="checkbox"
-                      className="form-check-input width-auto"
-                      id="exampleCheck1"
-                    />
-                    <label
-                      className="form-check-label"
-                      style={{
-                        fontFamily: `Corporate S Regular, sans-serif`,
-                      }}
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                  <a
-                    className="lost-pass"
-                    href="#"
-                    style={{ fontFamily: `Corporate S Regular, sans-serif` }}
-                    onClick={notify}
-                  >
-                    Forgot password?
-                  </a>
-                </div>
+
                 {errorMessage && (
                   <p className="loginError mt-2">{errorMessage}</p>
                 )}
@@ -186,29 +106,12 @@ export default function Login() {
                     className="btn"
                     type="submit"
                     style={{
-                      backgroundColor: `rgb(213, 179, 117)`,
+                      backgroundColor: `rgba(255, 255, 255, 0.55)`,
                       fontFamily: `Corporate S Regular, sans-serif`,
                     }}
                   >
                     Login
                   </button>
-                </div>
-                <div>
-                  <p
-                    className="outer-link"
-                    style={{ fontFamily: `Corporate S Regular, sans-serif` }}
-                  >
-                    Don't have an account?
-                    <Link
-                      className="loginRef ml-1"
-                      to="/register"
-                      style={{
-                        fontFamily: `Corporate S Regular, sans-serif`,
-                      }}
-                    >
-                      Register here{" "}
-                    </Link>
-                  </p>
                 </div>
               </div>
             </form>
