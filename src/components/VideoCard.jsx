@@ -13,6 +13,7 @@ function VideoMovie({ video }) {
         width="100%"
         height="100%"
         controls
+        origin="http://localhost:3000/"
       />
     </Link>
   );

@@ -8,6 +8,7 @@ export function Search() {
   const searchText = useSelector((state) => {
     return state.text.text;
   });
+  const [text, setText] = React.useState("");
   // React.useEffect(() => {
   //   if (searchText) {
   //     setSearchText(searchText);
@@ -17,7 +18,8 @@ export function Search() {
   // }, [searchText]);
   const handleSetText = (e) => {
     e.preventDefault();
-    dispatch(clearSearchText(""));
+    dispatch(setSearchText(text));
+    //dispatch(clearSearchText(""));
   };
   const handleTextChanged = (e) => {
     e.preventDefault();
@@ -34,8 +36,8 @@ export function Search() {
           <input
             className={styles.searchInput}
             type="text"
-            value={searchText ? searchText : ""}
-            onChange={handleTextChanged}
+            value={text ? text : ""}
+            onChange={(e) => setText(e.target.value.toUpperCase())}
             placeholder="Title"
             aria-label="Search Movies"
           />

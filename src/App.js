@@ -31,7 +31,9 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      <div className="pb-3" style={{ position: "relative" }}>
+        <Footer />
+      </div>
     </div>
   );
 }

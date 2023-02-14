@@ -13,10 +13,14 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import textSlice from "./textSlice";
+import paginationSlice from "./paginationSlice";
+import videoSlice from "./videoSlice";
 
 const rootReducer = combineReducers({
   user: userSlice,
   text: textSlice,
+  pagination: paginationSlice,
+  video: videoSlice,
 });
 
 const persistConfig = {
