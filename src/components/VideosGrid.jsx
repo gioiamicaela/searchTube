@@ -23,31 +23,26 @@ export default function VideosGrid() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [videosPerPage, setVideosPerPage] = React.useState(12);
 
-  const dispatch = useDispatch();
-
   const getChannel = async () => {
-    console.log(searchText);
-    // const authAxios = axios.create({
-    //   params: {
-    //     part: "contentDetails",
-    //     key,
-    //     forUsername: searchText,
-    //   },
-    // });
+    const authAxios = axios.create({
+      params: {
+        part: "contentDetails",
+        key,
+        forUsername: searchText,
+      },
+    });
     try {
-      // const response = await authAxios.get(searchURL + "channels");
-      // if (response.data.items[0].id) {
-      //   setChanneId(response.data.items[0].id);
-      //   await getVideosList();
-      //   dispatch(setVideoLength(videos.length));
-      // }
+      const response = await authAxios.get(searchURL + "channels");
+      setIsLoading(false);
+      if (response.data.pageInfo.totalResults > 0) {
+        setChanneId(response.data.items[0].id);
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   const getVideosList = async () => {
-    console.log(channelId);
     const authAxios = axios.create({
       baseURL: searchURL + "search",
       params: {
@@ -56,17 +51,15 @@ export default function VideosGrid() {
         channelId: channelId,
         order: "date",
         maxResults: "50",
-        nextPageToken: page,
+        pageToken: page,
       },
     });
     try {
       const response = await authAxios.get(searchURL + "search");
-      console.log(response.data.items);
       setVideos((prevVideos) => prevVideos.concat(response.data.items));
       response.data.nextPageToken
         ? setPage(response.data.nextPageToken)
         : setPage("");
-      console.log("videos", videos);
     } catch (err) {
       console.error(err);
     }
@@ -79,6 +72,14 @@ export default function VideosGrid() {
     }
   }, [searchText, page]);
 
+  React.useEffect(() => {
+    setIsLoading(true);
+
+    if (channelId) {
+      getVideosList();
+    }
+  }, [channelId]);
+
   if (!isLoading && videos.length === 0) {
     return <NoMatch />;
   }
@@ -86,11 +87,10 @@ export default function VideosGrid() {
   // Get current posts
   const indexOfLastVideo = currentPage * videosPerPage;
   const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
-  const currentVideo = videoList.slice(indexOfFirstVideo, indexOfLastVideo);
+  const currentVideo = videos.slice(indexOfFirstVideo, indexOfLastVideo);
 
   // Change page
   const paginate = (pageNumber) => {
-    console.log("hola");
     setCurrentPage(pageNumber);
   };
 
@@ -122,6 +122,7 @@ export default function VideosGrid() {
           />
         </div>
       </div>
+      {isLoading && <Spinner />}
     </>
   );
 }

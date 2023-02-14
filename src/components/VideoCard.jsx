@@ -61,9 +61,9 @@ function VideoMovie({ video }) {
               <h4 style={{ color: "white", fontSize: "1rem" }}>
                 Visits: {videoStatistics.viewCount}
               </h4>
-              <h4 style={{ color: "white", fontSize: "1rem" }}>
-                etag: {videoStatistics.viewCount}
-              </h4>
+              {/* <h4 style={{ color: "white", fontSize: "1rem" }}>
+                etag: {video.etag}
+              </h4> */}
             </div>
           </div>
         </div>
