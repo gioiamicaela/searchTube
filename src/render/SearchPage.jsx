@@ -4,23 +4,36 @@ import { useDebounce } from "../hooks/useDebounce";
 import ScrollToTop from "react-scroll-to-top";
 import VideosGrid from "../components/VideosGrid";
 import { useSelector, useDispatch } from "react-redux";
-import Pagination from "../components/Pagination";
-import { setCurrentPage } from "../redux/paginationSlice";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+import Data from "../components/Data";
 
 function SearchPage() {
   const searchText = useSelector((state) => {
     return state.text.text;
   });
-  // const videosLength = useSelector((state) => {
-  //   return state.video;
-  // });
   const dispatch = useDispatch();
   const debouncedSearch = useDebounce(searchText, 500);
+  const [key, setKey] = React.useState("videos");
 
   return (
     <div>
       <Search />
-      <VideosGrid key={debouncedSearch} searchText={debouncedSearch} />
+      <div className="container">
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+          className="mb-3"
+        >
+          <Tab eventKey="videos" title="Videos">
+            <VideosGrid key={debouncedSearch} searchText={debouncedSearch} />
+          </Tab>
+          <Tab eventKey="data" title="Data">
+            <Data searchText={debouncedSearch} />
+          </Tab>
+        </Tabs>
+      </div>
 
       <ScrollToTop
         smooth

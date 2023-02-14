@@ -6,7 +6,6 @@ import { Spinner } from "./Spinner";
 import NoMatch from "./NoMatch";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { setVideoLength } from "../redux/videoSlice";
 import videoList from "../videos.json";
 import Pagination from "./Pagination";
 
@@ -14,9 +13,6 @@ export default function VideosGrid() {
   const searchText = useSelector((state) => {
     return state.text.text;
   });
-  // const currentPage = useSelector((state) => {
-  //   return state.pagination.currentPage;
-  // });
   const [videos, setVideos] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [page, setPage] = React.useState("");
