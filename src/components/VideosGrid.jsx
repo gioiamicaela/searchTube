@@ -2,11 +2,9 @@ import React from "react";
 import { getChannelId } from "../utils/httpClient";
 import VideoCard from "./VideoCard";
 import styles from "./VideosGrid.module.css";
-import { Spinner } from "./Spinner";
 import NoMatch from "./NoMatch";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import videoList from "../videos.json";
 import Pagination from "./Pagination";
 
 export default function VideosGrid() {
@@ -22,6 +20,7 @@ export default function VideosGrid() {
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [videosPerPage, setVideosPerPage] = React.useState(12);
+  const [nextLoad, setNextLoad] = React.useState("");
 
   const getChannel = async () => {
     const authAxios = axios.create({
@@ -70,7 +69,7 @@ export default function VideosGrid() {
     if (searchText) {
       getChannel();
     }
-  }, [searchText, page]);
+  }, [searchText]);
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -78,7 +77,7 @@ export default function VideosGrid() {
     if (channelId) {
       getVideosList();
     }
-  }, [channelId]);
+  }, [channelId, , nextLoad]);
 
   if (!isLoading && videos.length === 0) {
     return <NoMatch />;
@@ -94,35 +93,41 @@ export default function VideosGrid() {
     setCurrentPage(pageNumber);
   };
 
+  const loadVideos = () => {
+    setNextLoad(page);
+  };
+
   return (
     <>
       <div className="container px-0 minHeightContainer">
         {currentVideo.length > 0 && (
-          <ul className={styles.movieGrid}>
-            {currentVideo.map((video, index) => {
-              return (
-                <li
-                  style={{ listStyle: "none" }}
-                  className={styles.movieCard}
-                  key={index}
-                >
-                  <VideoCard key={index} video={video} />;
-                </li>
-              );
-            })}
-          </ul>
+          <>
+            <ul className={styles.movieGrid}>
+              {currentVideo.map((video, index) => {
+                return (
+                  <li
+                    style={{ listStyle: "none" }}
+                    className={styles.movieCard}
+                    key={index}
+                  >
+                    <VideoCard key={index} video={video} />;
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="row">
+              <div className="col-12 d-flex justify-content-center">
+                <Pagination
+                  videosPerPage={videosPerPage}
+                  totalVideos={videos.length}
+                  paginate={paginate}
+                  loadVideos={loadVideos}
+                />
+              </div>
+            </div>
+          </>
         )}
       </div>
-      <div className="row">
-        <div className="col-12 d-flex justify-content-center">
-          <Pagination
-            videosPerPage={videosPerPage}
-            totalVideos={videoList.length}
-            paginate={paginate}
-          />
-        </div>
-      </div>
-      {isLoading && <Spinner />}
     </>
   );
 }

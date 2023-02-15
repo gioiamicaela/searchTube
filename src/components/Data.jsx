@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import NoMatch from "./NoMatch";
-import { Spinner } from "./Spinner";
+import Chart from "./Chart";
 
 function Data({ searchText }) {
   const searchURL = process.env.REACT_APP_URL;
@@ -42,23 +42,25 @@ function Data({ searchText }) {
   return (
     <>
       {data && (
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Views: {data.viewCount}
-              </h4>
-              <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Subscribers: {data.subscriberCount}
-              </h4>
-              <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Videos: {data.videoCount}
-              </h4>
+        <>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h4 style={{ color: "white", fontSize: "1rem" }}>
+                  Views: {data.viewCount}
+                </h4>
+                <h4 style={{ color: "white", fontSize: "1rem" }}>
+                  Subscribers: {data.subscriberCount}
+                </h4>
+                <h4 style={{ color: "white", fontSize: "1rem" }}>
+                  Videos: {data.videoCount}
+                </h4>
+              </div>
             </div>
           </div>
-        </div>
+          <Chart data={data} />
+        </>
       )}
-      {isLoading && <Spinner />}
     </>
   );
 }
