@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 const Pagination = ({ videosPerPage, totalVideos, paginate, loadVideos }) => {
   const [pageNumbers, setPageNumbers] = React.useState([]);

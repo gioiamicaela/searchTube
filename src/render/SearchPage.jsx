@@ -30,7 +30,7 @@ function SearchPage() {
             <VideosGrid key={debouncedSearch} searchText={debouncedSearch} />
           </Tab>
           <Tab eventKey="data" title="Data">
-            <Data searchText={debouncedSearch} />
+            <Data key={debouncedSearch} searchText={debouncedSearch} />
           </Tab>
         </Tabs>
       </div>
