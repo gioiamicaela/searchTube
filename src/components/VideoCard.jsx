@@ -35,31 +35,30 @@ function VideoMovie({ video }) {
 
   return (
     <>
-      <div className="container">
-        <div className="row">
+      <div className="container h-100">
+        <div className="row h-100">
           <div className="col-12">
-            <Link to={"/" + video.id}>
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                alt={video.snippet.title}
-                className={styles.movieImage}
-                width="100%"
-                height="100%"
-                controls
-                origin="http://localhost:3000/"
-              />
-            </Link>
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+              alt={video.snippet.title}
+              className={styles.movieImage}
+              width="100%"
+              height="100%"
+              controls
+              origin="http://localhost:3000/"
+            />
           </div>
-          <div className="row">
+          <div className="row d-flex flex-column justify-content-center">
             <div className="col-12">
               <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Name: {video.snippet.title}
+                <strong>Name:</strong> {video.snippet.title}
               </h4>
               <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Published at: {video.snippet.publishedAt}
+                <strong>Published at:</strong> {video.snippet.publishedAt}
               </h4>
               <h4 style={{ color: "white", fontSize: "1rem" }}>
-                Visits: {videoStatistics.viewCount}
+                <strong>Visits: </strong>
+                {videoStatistics.viewCount}
               </h4>
               {/* <h4 style={{ color: "white", fontSize: "1rem" }}>
                 etag: {video.etag}
