@@ -18,16 +18,6 @@ function NavBar() {
   const handleLogout = async (e) => {
     e.preventDefault();
     dispatch(logoutUser());
-    // toast.success("You were successfully logged out", {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
-
     navigate("/");
   };
   return (

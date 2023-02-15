@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import axios from "axios";
 
-function VideoMovie({ video }) {
+function VideoCard({ video }) {
   const searchURL = process.env.REACT_APP_URL;
   const key = process.env.REACT_APP_KEY;
   const [videoStatistics, setVideoStatistics] = React.useState([]);
@@ -41,7 +41,7 @@ function VideoMovie({ video }) {
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
               alt={video.snippet.title}
-              className={styles.movieImage}
+              className={styles.videoImage}
               width="100%"
               height="100%"
               controls
@@ -71,4 +71,4 @@ function VideoMovie({ video }) {
   );
 }
 
-export default VideoMovie;
+export default VideoCard;

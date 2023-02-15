@@ -9,21 +9,9 @@ export function Search() {
     return state.text.text;
   });
   const [text, setText] = React.useState("");
-  // React.useEffect(() => {
-  //   if (searchText) {
-  //     setSearchText(searchText);
-  //   } else {
-  //     setSearchText("");
-  //   }
-  // }, [searchText]);
   const handleSetText = (e) => {
     e.preventDefault();
     dispatch(setSearchText(text));
-    //dispatch(clearSearchText(""));
-  };
-  const handleTextChanged = (e) => {
-    e.preventDefault();
-    dispatch(setSearchText(e.target.value.toUpperCase()));
   };
   React.useEffect(() => {
     dispatch(clearSearchText(""));
@@ -39,7 +27,7 @@ export function Search() {
             value={text ? text : ""}
             onChange={(e) => setText(e.target.value.toUpperCase())}
             placeholder="Title"
-            aria-label="Search Movies"
+            aria-label="Search Channel"
           />
           <i
             className="fa-solid fa-magnifying-glass"
@@ -52,8 +40,8 @@ export function Search() {
           ></i>
         </div>
       </form>
-      <div className="row">
-        <h2 className={styles.movieTitle}>CHANNELS</h2>
+      <div className="row mt-5">
+        <h2 className={styles.channelTitle}>CHANNELS</h2>
         <hr className="mb-4 text-white-50"></hr>
       </div>
     </div>

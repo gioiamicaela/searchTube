@@ -1,5 +1,4 @@
 import React from "react";
-import { getChannelId } from "../utils/httpClient";
 import VideoCard from "./VideoCard";
 import styles from "./VideosGrid.module.css";
 import NoMatch from "./NoMatch";
@@ -102,12 +101,12 @@ export default function VideosGrid() {
       <div className="container px-0 minHeightContainer">
         {currentVideo.length > 0 && (
           <>
-            <ul className={styles.movieGrid}>
+            <ul className={styles.videoGrid}>
               {currentVideo.map((video, index) => {
                 return (
                   <li
                     style={{ listStyle: "none" }}
-                    className={styles.movieCard}
+                    className={styles.videoCard}
                     key={index}
                   >
                     <VideoCard key={index} video={video} />;

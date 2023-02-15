@@ -47,13 +47,13 @@ function Data({ searchText }) {
             <div className="row">
               <div className="col-12">
                 <h4 style={{ color: "white", fontSize: "1rem" }}>
-                  Views: {data.viewCount}
+                  <strong>Views:</strong> {data.viewCount}
                 </h4>
                 <h4 style={{ color: "white", fontSize: "1rem" }}>
-                  Subscribers: {data.subscriberCount}
+                  <strong>Subscribers:</strong> {data.subscriberCount}
                 </h4>
                 <h4 style={{ color: "white", fontSize: "1rem" }}>
-                  Videos: {data.videoCount}
+                  <strong> Videos:</strong> {data.videoCount}
                 </h4>
               </div>
             </div>

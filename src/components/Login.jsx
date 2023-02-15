@@ -1,7 +1,7 @@
 import React from "react";
 import { loginUser } from "../redux/userSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {

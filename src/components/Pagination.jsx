@@ -4,10 +4,6 @@ const Pagination = ({ videosPerPage, totalVideos, paginate, loadVideos }) => {
   const [pageNumbers, setPageNumbers] = React.useState([]);
   const [count, setCount] = React.useState([]);
 
-  // for (let i = 1; i <= Math.ceil(totalVideos / videosPerPage); i++) {
-  //   pageNumbers.push(i);
-  // }
-
   React.useEffect(() => {
     const pages = pageNumbers.slice();
     for (let i = 1; i <= Math.ceil(totalVideos / videosPerPage); i++) {

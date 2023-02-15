@@ -17,13 +17,6 @@
   color: #e6e6e6;
 }
 
-.account-login .login-form .title p {
-  font-size: 14px;
-  line-height: 24px;
-  margin: 0;
-  padding: 0;
-}
-
 .account-login .form-group label {
   display: block;
   margin-bottom: 8px;
@@ -34,10 +27,6 @@
   margin-bottom: 15px;
 }
 
-.account-login .bottom-content {
-  margin-top: 25px;
-}
-
 .account-login .button {
   margin-top: 30px;
 }
@@ -46,82 +35,6 @@
   width: 100%;
 }
 
-.account-login .outer-link {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #081828;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.account-login .outer-link a {
-  color: rgb(213, 179, 117);
-}
-
-.account-login .outer-link .loginRef {
-  color: rgb(213, 179, 117);
-}
-
-.loginRef .account-login .login-form {
-  margin: 0px;
-  padding: 0px;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 5px 40px #00000008;
-  box-shadow: 0px 5px 40px #00000008;
-}
-
-.account-login .alt-option:before {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 1px;
-  width: 100%;
-  background: #e6e6e6;
-  content: "";
-  z-index: -1;
-}
-
-.account-login .lost-pass {
-  color: #888;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.loginRef {
-  display: inline-block;
-  text-decoration: none;
-  transition: all 0.4s ease;
-  margin-left: 5px;
-}
-
 .loginError {
   color: red;
-}
-
-@media (max-width: 767.9px) {
-  .loginSocialContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .loginFacebook {
-    margin-top: 10px;
-  }
-  .loginTwitter {
-    margin-top: 10px;
-  }
-  .loginGoogle {
-    margin-top: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .loginSocialContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }

@@ -8,14 +8,7 @@
   opacity: 0.8;
 }
 
-.movieImage {
+.videoImage {
   border-radius: 10px;
   background-color: azure;
-}
-
-@media (max-width: 560px) {
-  .movieImage {
-    width: 90%;
-    height: auto;
-  }
 }

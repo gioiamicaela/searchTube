@@ -6,9 +6,6 @@ import {
   GridComponent,
   TitleComponent,
   TooltipComponent,
-  DataZoomComponent,
-  LegendComponent,
-  DataZoomInsideComponent,
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 
