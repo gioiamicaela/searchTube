@@ -3,13 +3,19 @@
   box-sizing: border-box;
 }
 
-body {
+html {
+  height: 100vh;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #212529 !important;
-  height: 100vh;
-  display: relative;
 }
 
 #root {
@@ -29,6 +35,7 @@ footer {
   left: 0;
   bottom: 0;
   right: 0;
+  height: 1.5rem;
 }
 
 .minHeightContainer {

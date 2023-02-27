@@ -21,6 +21,10 @@ export default function VideosGrid() {
   const [videosPerPage, setVideosPerPage] = React.useState(12);
   const [nextLoad, setNextLoad] = React.useState("");
 
+  React.useEffect(() => {
+    console.log(videos);
+  }, [videos]);
+
   const getChannel = async () => {
     const authAxios = axios.create({
       params: {
@@ -66,6 +70,7 @@ export default function VideosGrid() {
   React.useEffect(() => {
     setIsLoading(true);
     if (searchText) {
+      setVideos([]);
       getChannel();
     }
   }, [searchText]);

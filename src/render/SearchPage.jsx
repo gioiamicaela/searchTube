@@ -27,7 +27,7 @@ function SearchPage() {
           className="my-5"
         >
           <Tab eventKey="videos" title="Videos">
-            <VideosGrid key={debouncedSearch} searchText={debouncedSearch} />
+            <VideosGrid searchText={debouncedSearch} />
           </Tab>
           <Tab eventKey="data" title="Data">
             <Data key={debouncedSearch} searchText={debouncedSearch} />
